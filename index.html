@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxskin Collagen Official</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <video autoplay muted loop playsinline id="bg-video">
+      <source src="background.mp4" type="video/mp4" />
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+      <img src="Gabut-04.png" alt="Luxskin Logo" class="profile-pic" />
+      <div class="music-control" onclick="toggleMusic()">
+        <i id="music-icon" class="fa-solid fa-volume-high"></i>
+      </div>
+
+      <h1>LUXSKIN</h1>
+      <p class="bio">
+        Premium Whitening Supplement ✨<br />
+        BPOM & Halal Certified.
+      </p>
+
+      <a href="https://wa.me/628xxxxxxx" class="link-btn">
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp
+      </a>
+
+      <a href="https://shopee.co.id/tokoanda" class="link-btn">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Shopee
+      </a>
+
+      <a href="https://tiktok.com/@tokoanda" class="link-btn">
+        <i class="fa-brands fa-tiktok"></i>
+        TikTok
+      </a>
+
+      <a href="https://instagram.com/luxskin_collagen" class="link-btn">
+        <i class="fa-brands fa-instagram"></i>
+        Instagram
+      </a>
+
+      <div class="footer">© 2025 LUXSKIN COLLAGEN</div>
+    </div>
+    <audio id="bg-music" loop>
+      <source src="cupid_sound.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      const audio = document.getElementById("bg-music");
+      const icon = document.getElementById("music-icon");
+
+      function toggleMusic() {
+        if (audio.paused) {
+          audio.play();
+          icon.className = "fa-solid fa-volume-high";
+        } else {
+          audio.pause();
+          icon.className = "fa-solid fa-volume-xmark";
+        }
+      }
+
+      // Coba Autoplay saat load
+      window.onload = function () {
+        audio.play().catch(() => {
+          // Jika gagal, tunggu klik pertama
+          document.body.addEventListener(
+            "click",
+            () => {
+              audio.play();
+              icon.className = "fa-solid fa-volume-high";
+            },
+            { once: true }
+          );
+        });
+      };
+    </script>
+  </body>
+</html>
